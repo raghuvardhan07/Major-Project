@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Classroom Environment Certificate</title>
+        <style>
+            body {
+                font-family: "Arial", sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f9f9f9;
+                color: #333;
+            }
+            .certificate-container {
+                max-width: 800px;
+                margin: 30px auto;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+            }
+            .certificate-header {
+                background-color: #3f51b5;
+                color: white;
+                padding: 20px;
+                text-align: center;
+            }
+            .certificate-title {
+                margin: 0;
+                font-size: 24px;
+                font-weight: bold;
+            }
+            .certificate-subtitle {
+                margin: 5px 0 0;
+                font-size: 16px;
+                font-weight: normal;
+            }
+            .certificate-body {
+                padding: 30px;
+            }
+            .grade-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 30px;
+            }
+            .grade-circle {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                color: white;
+                font-weight: bold;
+                margin-right: 30px;
+            }
+            .grade-a-plus,
+            .grade-a {
+                background-color: #4caf50;
+            }
+            .grade-b {
+                background-color: #8bc34a;
+            }
+            .grade-c {
+                background-color: #ffc107;
+            }
+            .grade-d {
+                background-color: #ff9800;
+            }
+            .grade-f {
+                background-color: #f44336;
+            }
+            .grade-text {
+                font-size: 64px;
+                line-height: 1;
+            }
+            .grade-info {
+                font-size: 16px;
+                margin-top: 5px;
+            }
+            .metrics-container {
+                margin-bottom: 30px;
+            }
+            .metrics-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .metric-card {
+                border: 1px solid #e0e0e0;
+                border-radius: 5px;
+                padding: 15px;
+                text-align: center;
+            }
+            .metric-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin: 10px 0;
+            }
+            .metric-label {
+                color: #757575;
+                font-size: 14px;
+            }
+            .recommendations {
+                margin-bottom: 30px;
+            }
+            .recommendations h3 {
+                margin-top: 0;
+                border-bottom: 1px solid #e0e0e0;
+                padding-bottom: 10px;
+            }
+            .recommendations ul {
+                padding-left: 20px;
+            }
+            .recommendations li {
+                margin-bottom: 10px;
+            }
+            .certificate-footer {
+                background-color: #f5f5f5;
+                padding: 15px;
+                text-align: center;
+                font-size: 14px;
+                color: #757575;
+            }
+            .min-max-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 30px;
+            }
+            .min-max-table th,
+            .min-max-table td {
+                border: 1px solid #e0e0e0;
+                padding: 10px;
+                text-align: center;
+            }
+            .min-max-table th {
+                background-color: #f5f5f5;
+            }
+
+            /* Action Buttons Styles */
+            .certificate-actions {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 30px;
+                padding-top: 20px;
+                border-top: 1px solid #e0e0e0;
+            }
+
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 24px;
+                border-radius: 8px;
+                font-size: 16px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                gap: 8px;
+            }
+
+            .btn-primary {
+                background-color: #3f51b5;
+                color: white;
+                border: none;
+            }
+
+            .btn-primary:hover {
+                background-color: #303f9f;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .btn-secondary {
+                background-color: #4caf50;
+                color: white;
+                border: none;
+            }
+
+            .btn-secondary:hover {
+                background-color: #388e3c;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .btn-outline {
+                background-color: transparent;
+                color: #3f51b5;
+                border: 2px solid #3f51b5;
+            }
+
+            .btn-outline:hover {
+                background-color: rgba(63, 81, 181, 0.1);
+                transform: translateY(-2px);
+            }
+
+            .icon {
+                width: 20px;
+                height: 20px;
+                fill: currentColor;
+            }
+
+            /* Print-specific styles */
+            @media print {
+                body {
+                    background-color: white;
+                }
+                .certificate-container {
+                    box-shadow: none;
+                    margin: 0;
+                }
+                .certificate-actions {
+                    display: none;
+                }
+                .certificate-header {
+                    -webkit-print-color-adjust: exact;
+                    print-color-adjust: exact;
+                }
+                .grade-circle {
+                    -webkit-print-color-adjust: exact;
+                    print-color-adjust: exact;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="certificate-container">
+            <div class="certificate-header">
+                <h1 class="certificate-title">Classroom Environment Certificate</h1>
+                <p class="certificate-subtitle">
+                    classroom2 - March 13, 2025 to April 11, 2025
+                </p>
+            </div>
+
+            <div class="certificate-body">
+                <div class="grade-container">
+                    <div class="grade-circle grade-a+">
+                        <span class="grade-text">A+</span>
+                        <span class="grade-info">95/100</span>
+                    </div>
+                    <div>
+                        <h2>Environmental Quality Rating</h2>
+                        <p>Based on 6 readings over the specified period</p>
+                    </div>
+                </div>
+
+                <div class="metrics-container">
+                    <h3>Average Metrics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-label">Temperature</div>
+                            <div class="metric-value">31.7°C</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Humidity</div>
+                            <div class="metric-value">38.0%</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">CO₂ Level</div>
+                            <div class="metric-value">12 ppm</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Occupancy</div>
+                            <div class="metric-value">0.6</div>
+                        </div>
+                        <div class="metric-card" style="grid-column: span 2">
+                            <div class="metric-label">KPIv (Ventilation Quality Index)</div>
+                            <div class="metric-value">0.00</div>
+                            <div class="metric-label">Lower values indicate better ventilation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Min/Max Values</h3>
+                <table class="min-max-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Minimum</th>
+                            <th>Maximum</th>
+                            <th>Range</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Temperature (°C)</td>
+                            <td>31.0</td>
+                            <td>32.0</td>
+                            <td>
+                                1.0
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Humidity (%)</td>
+                            <td>36.0</td>
+                            <td>40.0</td>
+                            <td>4.0</td>
+                        </tr>
+                        <tr>
+                            <td>CO₂ (ppm)</td>
+                            <td>11</td>
+                            <td>13</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>KPIv</td>
+                            <td>0.00</td>
+                            <td>0.00</td>
+                            <td>0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="recommendations">
+                    <h3>Recommendations</h3>
+                    <ul>
+                        <li>Adjust temperature to optimal range (20-26°C). Current: 31.7°C.</li>
+                        <li>Maintain humidity between 40-60%. Current: 38.0%.</li>
+                    </ul>
+                </div>
+
+                <!-- Certificate Actions -->
+                <div class="certificate-actions">
+                    <button onclick="window.print()" class="btn btn-primary">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path
+                                d="M19 8h-1V3H6v5H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zM8 5h8v3H8V5zm8 14H8v-6h8v6zm4-4h-2v-2h-1v4H7v-4H6v2H4v-4c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v4z"
+                            ></path>
+                            <circle cx="18" cy="11.5" r="1"></circle>
+                        </svg>
+                        Print Certificate
+                    </button>
+                    <a href="javascript:downloadAsPDF()" class="btn btn-secondary">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
+                        </svg>
+                        Download PDF
+                    </a>
+                    <a href="/certificate-generator.html" class="btn btn-outline">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path
+                                d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            ></path>
+                        </svg>
+                        Back to Generator
+                    </a>
+                </div>
+            </div>
+
+            <div class="certificate-footer">
+                <p>Generated on April 11, 2025 | Classroom Monitoring System</p>
+            </div>
+        </div>
+
+        <script>
+            // Function to download as PDF
+            function downloadAsPDF() {
+                alert(
+                    "PDF download functionality would be implemented here. This would typically use a library like html2pdf.js or jsPDF, or make a server request to generate a PDF."
+                );
+
+                // In a real implementation, you would use a library like html2pdf.js:
+                // Example:
+                // html2pdf()
+                //     .from(document.querySelector('.certificate-container'))
+                //     .save('classroom_certificate_classroom2.pdf');
+            }
+
+            // Initialize helper functions
+            document.addEventListener("DOMContentLoaded", function () {
+                // Fix grade class issue - ensure lowercase is applied correctly
+                const gradeCircle = document.querySelector(".grade-circle");
+                if (gradeCircle) {
+                    const gradeText = gradeCircle
+                        .querySelector(".grade-text")
+                        .textContent.toLowerCase();
+                    gradeCircle.className = "grade-circle grade-" + gradeText.replace("+", "-plus");
+                }
+            });
+        </script>
+    </body>
+</html>
