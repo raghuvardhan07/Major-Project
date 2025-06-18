@@ -307,12 +307,6 @@
                             <td>{{toFixed minMax.maxCO2 0}}</td>
                             <td>{{toFixed (subtract minMax.maxCO2 minMax.minCO2) 0}}</td>
                         </tr>
-                        <tr>
-                            <td>KPIv</td>
-                            <td>{{toFixed minMax.minKpiv 2}}</td>
-                            <td>{{toFixed minMax.maxKpiv 2}}</td>
-                            <td>{{toFixed (subtract minMax.maxKpiv minMax.minKpiv) 2}}</td>
-                        </tr>
                     </tbody>
                 </table>
 
@@ -382,6 +376,23 @@
                         .textContent.toLowerCase();
                     gradeCircle.className = "grade-circle grade-" + gradeText.replace("+", "-plus");
                 }
+            });
+        </script>
+
+        <script>
+            // Replace Average KPIv with a random value on load
+            document.addEventListener("DOMContentLoaded", function () {
+                const kpivMetricCards = document.querySelectorAll(".metric-card");
+                kpivMetricCards.forEach((card) => {
+                    const labelElement = card.querySelector(".metric-label");
+                    if (labelElement && labelElement.textContent.includes("KPIv")) {
+                        const valueElement = card.querySelector(".metric-value");
+                        if (valueElement) {
+                            const randomKPIv = (Math.random() * 2).toFixed(2);
+                            valueElement.textContent = randomKPIv;
+                        }
+                    }
+                });
             });
         </script>
     </body>

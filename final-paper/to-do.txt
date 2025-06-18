@@ -1,0 +1,15 @@
+[X] Set up folder structure (sections, figures, bibliography)
+[ ] Copy IEEE template to final-paper/main.tex
+[ ] Update Title and Authors in main.tex
+[X] Adapt Thesis Abstract (Thesis/abstract.tex) for main.tex
+[X] Adapt Thesis Introduction (Thesis/Chapter1.tex) for main.tex -> sections/introduction.tex
+[X] Adapt Thesis Related Work (Thesis/Chapter2.tex) for main.tex -> sections/related_work.tex
+[X] Adapt Thesis Methodology (Thesis/Chapter3.tex, Thesis/Chapter4.tex) -> sections/methodology.tex
+[X] Adapt Thesis Results (Thesis/Chapter5.tex) -> sections/results.tex
+[X] Adapt Thesis Conclusion (Thesis/Chapter6.tex, Thesis/Chapter7.tex) -> sections/conclusion.tex
+[X] Create bibliography file (bibliography/references.bib) and add references
+[X] Identify and copy relevant figures/tables to figures/
+[X] Integrate all sections into main.tex using \input{}
+[X] Add IEEE keywords
+[ ] Review and refine entire paper
+[ ] Remove template comments/guidance text

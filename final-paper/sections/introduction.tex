@@ -1,0 +1,18 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Indoor air quality (IAQ) in educational settings significantly impacts student cognitive function, comfort, and overall health, particularly in densely occupied classrooms \cite{Azuma2018}. Traditional ventilation systems often rely on static thresholds or manual controls, proving inefficient and unresponsive to dynamic changes in occupancy and environmental conditions like Carbon Dioxide (CO\textsubscript{2}) levels \cite{McNeill2022}. Such systems struggle to adapt to fluctuating occupancy, varying room sizes, and diverse usage patterns, leading to inconsistent air quality, potential health concerns, and suboptimal energy consumption.
+
+The primary challenge lies in developing an intelligent, responsive ventilation system capable of real-time data acquisition, accurate prediction of environmental changes, and automated control actions. While cloud-based solutions exist, they often suffer from latency issues unsuitable for immediate environmental adjustments \cite{Idrees2021}. Edge computing, coupled with advancements in Internet of Things (IoT) sensors and deep learning models like Long Short-Term Memory (LSTM) networks, offers a promising alternative by enabling localized data processing and predictive control with minimal delay.
+
+This paper proposes an edge-driven system for real-time CO\textsubscript{2} and occupancy prediction to optimize classroom ventilation. Our approach integrates low-cost IoT sensors for environmental data collection (temperature, humidity, CO\textsubscript{2}, occupancy), a lightweight LSTM model deployed on edge devices for predictive analysis, and certificate generation for environmental quality assurance. The system employs a hierarchical architecture, leveraging edge devices for immediate processing and a fog layer for aggregation, alongside cloud integration for long-term data storage and analysis.
+
+The key contributions of this work are:
+\begin{itemize}
+    \item Development and edge deployment of a lightweight LSTM model for real-time prediction of CO\textsubscript{2} levels and occupancy patterns in classrooms.
+    \item Design and implementation of a hierarchical edge-fog-cloud architecture for efficient data processing, low-latency control, and scalability.
+    \item Real-time generation of environmental quality certificates based on continuous monitoring and prediction.
+    \item Demonstration of the system's effectiveness in maintaining optimal classroom conditions through adaptive ventilation adjustments.
+\end{itemize}
+
+The remainder of this paper is organized as follows: Section \ref{sec:related_work} reviews related work in smart ventilation and edge computing. Section \ref{sec:methodology} details the proposed system architecture and methodology. Section \ref{sec:results} presents the experimental results and evaluation. Finally, Section \ref{sec:conclusion} concludes the paper and discusses future work. 

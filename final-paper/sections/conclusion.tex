@@ -1,0 +1,17 @@
+\section{Conclusion and Future Work}
+\label{sec:conclusion}
+
+This paper presented an edge-driven system for CO\textsubscript{2} and occupancy prediction aimed at optimizing classroom ventilation. By integrating real-time IoT sensor data (CO\textsubscript{2}, temperature, humidity, occupancy) with an LSTM predictive model deployed on a Raspberry Pi (fog layer) controlling Arduino-based edge nodes, the system demonstrated effective environmental monitoring and proactive ventilation management. Key achievements include the successful implementation of the hierarchical edge-fog-cloud architecture, accurate prediction of environmental trends enabling calculations of KPIv and Room Quality Score, and the automated generation of environmental quality certificates via ThingSpeak integration.
+
+The results validate the feasibility of using lightweight LSTM models on edge/fog devices for real-time analysis and control in resource-constrained environments like classrooms. The system effectively bridges low-cost IoT deployment with intelligent building management principles, offering a data-backed approach to ensuring healthier indoor air quality. The ability to provide verifiable environmental quality certificates adds a layer of accountability and transparency.
+
+Future work will focus on enhancing the system's practicality and scalability. Key directions include:
+\begin{itemize}
+    \item \textbf{Wireless Communication:} Replacing the current wired serial connection between edge and fog layers with wireless protocols like Zigbee or LoRaWAN to improve deployment flexibility.
+    \item \textbf{Model Enhancement:} Training the LSTM model on larger, more diverse datasets incorporating data from various room types and conditions to improve generalizability and accuracy.
+    \item \textbf{Expanded Sensing:} Incorporating additional sensors for parameters like Particulate Matter (PM2.5) and Volatile Organic Compounds (VOCs) to provide a more comprehensive IAQ assessment.
+    \item \textbf{HVAC Integration:} Interfacing the system directly with building HVAC systems for fully automated and optimized ventilation control, moving beyond simple fan actuation.
+    \item \textbf{Advanced ML Techniques:} Exploring techniques like federated learning for enhanced privacy and adaptive learning for real-time model fine-tuning directly on edge/fog devices.
+    \item \textbf{Scalability Testing:} Deploying the system across a larger number of classrooms or zones to evaluate performance and management at scale.
+\end{itemize}
+By pursuing these enhancements, the system can evolve into a more robust, scalable, and intelligent solution, contributing significantly to the development of healthier, energy-efficient, and data-driven educational environments. 

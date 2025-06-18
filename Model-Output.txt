@@ -1,0 +1,51 @@
+2025-04-27 16:57:54,834 - INFO - --- Starting Phase 1: LSTM Pre-training ---
+2025-04-27 16:57:54,834 - INFO - Loading data from: ./harmonized_dataset.csv
+2025-04-27 16:57:55,039 - INFO - Original dataset shape: (149619, 9)
+2025-04-27 16:57:55,051 - WARNING - Found 8036 missing values. Applying forward fill.
+C:\Users\Raghu Vardhan\Desktop\Raghu\BML\temp\IndoorVentilationModel.py:59: FutureWarning: DataFrame.fillna with 'method' is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
+  df_selected.fillna(method='ffill', inplace=True)
+2025-04-27 16:57:55,067 - INFO - Preprocessing complete. Final data shape: (149619, 5)
+2025-04-27 16:57:55,069 - INFO - Scaling data...
+2025-04-27 16:57:55,083 - INFO - Data scaled.
+2025-04-27 16:57:55,086 - INFO - Scaler saved to pretrained_scaler.joblib
+2025-04-27 16:57:55,135 - INFO - Generated 149609 sequences.
+2025-04-27 16:57:55,217 - INFO - Building pre-training model with input shape (10, 5) and 5 outputs.
+2025-04-27 16:57:55.235718: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+C:\Users\Raghu Vardhan\AppData\Local\Programs\Python\Python312\Lib\site-packages\keras\src\layers\rnn\rnn.py:200: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+  super().__init__(**kwargs)
+2025-04-27 16:57:55,432 - INFO - Model compiled.
+2025-04-27 16:57:55,444 - INFO - Model: "PretrainIndoorLSTM"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓    
+┃ Layer (type)                     ┃ Output Shape             ┃       Param # ┃    
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩    
+│ lstm_shared_1 (LSTM)             │ (None, 10, 64)           │        17,920 │    
+├──────────────────────────────────┼──────────────────────────┼───────────────┤    
+│ dropout_shared_1 (Dropout)       │ (None, 10, 64)           │             0 │    
+├──────────────────────────────────┼──────────────────────────┼───────────────┤    
+│ lstm_shared_2 (LSTM)             │ (None, 32)               │        12,416 │    
+├──────────────────────────────────┼──────────────────────────┼───────────────┤    
+│ dropout_shared_2 (Dropout)       │ (None, 32)               │             0 │    
+├──────────────────────────────────┼──────────────────────────┼───────────────┤    
+│ dense_shared_1 (Dense)           │ (None, 16)               │           528 │    
+├──────────────────────────────────┼──────────────────────────┼───────────────┤    
+│ dense_pretrain_output (Dense)    │ (None, 5)                │            85 │    
+└──────────────────────────────────┴──────────────────────────┴───────────────┘    
+ Total params: 30,949 (120.89 KB)
+ Trainable params: 30,949 (120.89 KB)
+ Non-trainable params: 0 (0.00 B)
+
+2025-04-27 16:57:55,446 - INFO - Starting model training...
+Epoch 1/5
+1871/1871 ━━━━━━━━━━━━━━━━━━━━ 15s 7ms/step - loss: 0.0104 - mae: 0.0602 - val_loss: 0.0034 - val_mae: 0.0207 - learning_rate: 0.0010
+Epoch 2/5
+1871/1871 ━━━━━━━━━━━━━━━━━━━━ 14s 7ms/step - loss: 0.0016 - mae: 0.0259 - val_loss: 0.0035 - val_mae: 0.0210 - learning_rate: 0.0010
+Epoch 3/5
+1871/1871 ━━━━━━━━━━━━━━━━━━━━ 19s 10ms/step - loss: 0.0013 - mae: 0.0235 - val_loss: 0.0039 - val_mae: 0.0224 - learning_rate: 0.0010
+Epoch 4/5
+1871/1871 ━━━━━━━━━━━━━━━━━━━━ 18s 10ms/step - loss: 0.0011 - mae: 0.0210 - val_loss: 0.0046 - val_mae: 0.0256 - learning_rate: 0.0010
+Epoch 5/5
+1871/1871 ━━━━━━━━━━━━━━━━━━━━ 14s 8ms/step - loss: 8.0551e-04 - mae: 0.0173 - val_loss: 0.0049 - val_mae: 0.0274 - learning_rate: 2.0000e-04
+2025-04-27 16:59:15,453 - INFO - Model training finished.
+2025-04-27 16:59:25,885 - INFO - Final Model Evaluation - Loss: 0.0012, MAE: 0.0143
+2025-04-27 16:59:25,956 - INFO - Pre-trained model weights saved to pretrained_lstm.weights.h5

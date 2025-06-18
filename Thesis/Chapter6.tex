@@ -1,0 +1,18 @@
+\chapter{Conclusion and Future scope}
+\section{Conclusion}
+This work assessed the performance of an edge-based CO2 and occupancy prediction system to enhance classroom ventilation via real-time sensing and predictive analysis. The implementation of an LSTM-based model on an Arduino-Raspberry Pi hardware interface provided effective environmental monitoring and proactive control of ventilation, validated through performance measures and real-world outcomes. The outcome illustrates the system's efficiency, with the LSTM model performing successful future CO2 levels from past environmental data, such as temperature, humidity, and occupany. The model had low values of error when tested, with the Mean Absolute Error (MAE) and Mean Squared Error (MSE) reflecting stable convergence and high reliability. The built-in Arduino logic for tracking occupancy and estimation of trends and KPIv calculations allowed dynamic alerts and control of ventilation based on environmental thresholds. The hardware and software integration of components allowed end-to-end system real-time operation, such as automated certificate issuance for air quality compliance. The real-world effect of the system is seen through its capacity to enhance indoor air quality and guide ventilation choices based on intelligent predictions instead of reactive measures.
+
+This system bridges the gap between low-cost IoT deployment and smart building management, enabling proactive ventilation control and data-backed environmental certification. Its accurate CO₂ and occupancy predictions, combined with dynamic certificate generation, showcase the value of custom hybrid models in complex, resource-constrained settings.
+This system has the potential to serve as a foundational framework for smart educational infrastructure, sustainable indoor environments, and public health monitoring. By making ventilation assessment and control both accessible and intelligent, it supports the global movement toward healthier, data-informed, and energy-conscious indoor spaces.
+
+\newpage
+\section{Future Scope}
+There are several concrete next steps to make this system more practical, scalable, and intelligent. Currently, the two Raspberry Pis communicate via a wired serial connection, which limits flexibility and real-world deployment. A major upgrade would be shifting to wireless communication using Zigbee, allowing better scalability and less physical constraint.
+
+The machine learning model also needs improvement—training it on a larger, more diverse dataset will help increase accuracy and robustness. Moreover, scaling up the system to include more Raspberry Pis across different classrooms or zones can help validate the model’s generalizability and handle broader deployments.
+
+On the hardware side, the project currently controls a basic fan to demonstrate actuator response. A realistic future direction is to interface with actual HVAC systems, enabling full integration into existing building infrastructure and making the system useful in real-world ventilation management.
+
+In terms of environmental sensing, we could expand the scope by including sensors for PM2.5, VOCs, temperature, and humidity to create a more complete picture of indoor air quality. This data can improve model inputs and make the KPIv certification more meaningful.
+
+Lastly, we aim to move toward real-time automation and intelligent adaptation—potentially using methods like federated learning for edge privacy and adaptive learning to fine-tune the system on the fly. Integration with Building Management Systems (BMS) could enable automatic HVAC adjustments based on predicted occupancy and air quality, leading to smarter, healthier, and more energy-efficient buildings.

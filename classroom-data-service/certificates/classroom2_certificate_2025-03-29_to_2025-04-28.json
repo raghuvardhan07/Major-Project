@@ -1,0 +1,31 @@
+{
+  "classroomId": "classroom2",
+  "period": {
+    "startDate": "2025-03-29T00:00:00.000Z",
+    "endDate": "2025-04-28T18:29:59.999Z"
+  },
+  "averageMetrics": {
+    "temperature": "30.7",
+    "humidity": "44.2",
+    "co2": 21,
+    "occupancy": "0.2",
+    "kpiv": "0.00"
+  },
+  "minMax": {
+    "minTemperature": 24,
+    "minHumidity": 32,
+    "minCO2": 11,
+    "minKpiv": 0,
+    "maxTemperature": 33,
+    "maxHumidity": 61,
+    "maxCO2": 63,
+    "maxKpiv": 0
+  },
+  "score": 95,
+  "grade": "A+",
+  "recommendations": [
+    "Adjust temperature to optimal range (20-26°C). Current: 30.7°C."
+  ],
+  "dataPoints": 24,
+  "generatedAt": "2025-04-28T16:15:04.910Z"
+}

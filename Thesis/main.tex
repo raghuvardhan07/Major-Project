@@ -1,0 +1,351 @@
+
+\documentclass[a4paper,12pt,oneside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{caption, subcaption}
+\usepackage{graphicx}
+\usepackage{mfirstuc}
+\graphicspath{Pictures}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{tabu}
+\usepackage{fancyhdr}
+\geometry{a4paper, tmargin=1in, rmargin=1in, bmargin=1in, lmargin=1.5in}
+\usepackage{etoolbox}
+\usepackage[svgnames]{xcolor}
+\usepackage{comment}
+\usepackage{physics}
+\usepackage{float}
+\usepackage{titletoc}
+\usepackage{appendix}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{textcase}
+\usepackage{pdfpages}
+\usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}]{hyperref}
+
+
+
+%-----------------------------------------
+% Editables of the document
+%-----------------------------------------
+\newcommand{\projecttitle}{} % Title of the project, change here
+
+% -----------------------------------------
+% STUDENT INFORMATION 
+% ------------------------------------------
+\newcolumntype{C}[1]{>{\centering}m{#1}}
+\newcommand{\studentA}{}
+\newcommand{\rollA}{}
+\newcommand{\studentB}{}
+\newcommand{\rollB}{}
+\newcommand{\studentC}{}
+\newcommand{\rollC}{}
+\newcommand{\guidename}{Mrs. E. Ramalakshmi}
+\newcommand{\guidedesignation}{Assistant Professor}
+% ---------------------------------------------
+
+% If the number of people is different, change accordingly in titlepage and bonafide certificate
+\newcommand{\projectdept}{Information Technology} % Department
+ % Project Guide
+ % Project Guide
+\newcommand{\depthodname}{Dr. M Venu Gopal chari} % Department Head
+\newcommand{\depthoddesignation}{Professor and Head, IT} % Department Head
+% Also, change the graduation year in titlepage and bonafide certificate
+%-----------------------------------------
+
+% References are to be added in reference.bib and cited in any part of the document. Read any examples online on how to add references. You can also use Google Scholar to get the reference formatted for BibTex.
+
+
+% For Figures and Subfigures
+
+
+% Package for block commenting
+
+
+% Chapter and Appendix in TOC prefixed
+\makeatletter
+\titlecontents{chapter}%
+ [0pt]% 
+ {\bfseries}%
+ {\MakeUppercase \@chapapp\ \thecontentslabel\quad}% 
+ {}% 
+ {\normalfont\cftdotfill{\cftdotsep}\contentspage}% 
+ [\addvspace{0pt}]% 
+
+\g@addto@macro\appendices{%
+  \addtocontents{toc}{\protect\renewcommand{\protect\@chapapp}{\appendixname}}%
+}
+\makeatother
+
+
+%Package for codes
+
+\lstset{
+    breaklines = true,
+    captionpos = b,
+    numberstyle = \scriptsize,
+    numbers=left,                    
+    numbersep=10pt
+}
+
+
+% Package for enumerate
+
+
+% Block Diagram Packages and Functions
+
+\usetikzlibrary{arrows, decorations.markings}
+\usetikzlibrary{arrows,positioning,shapes.geometric}
+\tikzstyle{vecArrow} = [thick, decoration={markings,mark=at position
+   1 with {\arrow[semithick]{open triangle 60}}},
+   double distance=1.4pt, shorten >= 5.5pt,
+   preaction = {decorate},
+   postaction = {draw,line width=1.4pt, white,shorten >= 4.5pt}]
+\tikzstyle{innerWhite} = [semithick, white,line width=1.4pt, shorten >= 4.5pt]
+\tikzstyle{block} = [draw, fill=blue!20, rectangle, 
+    minimum height=3em, minimum width=6em]
+
+
+\titleformat{\chapter}[display]
+{\fontsize{24pt}{24pt}\bfseries\centering}{\MakeUppercase\chaptertitlename\ \thechapter}{5pt}{\ExLarge}
+\titlespacing*{\chapter}{}{}{20pt}
+
+% Section Customization
+\titleformat{\section}{\fontsize{16pt}{16pt} \bfseries}{\thesection}{1em}{}
+
+% Sub-Section Customization
+\titleformat{\subsection}{\fontsize{12pt}{12pt} \bfseries}{\thesubsection}{1em}{}
+
+
+% Align the titles of auxiliary content to center
+\renewcommand*\contentsname{\Large \centerline{Table of Contents}}
+\renewcommand*\listfigurename{\Large \centerline{List of Figures}}
+\renewcommand*\listtablename{\Large \centerline{List of Tables }}
+% \renewcommand*\listabbreviations{\Large \centerline{ABBREVIATIONS}}
+
+
+% References Addition
+\usepackage[backend=bibtex,
+style=numeric,
+bibencoding=ascii,
+maxbibnames=99,
+sorting=none
+%style=alphabetic
+%style=reading
+]{biblatex}
+\addbibresource{reference.bib}
+
+% Page Style
+\pagestyle{fancy}
+\cfoot{}
+\rhead{}
+\lhead{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\pagestyle{fancy}
+
+%\rhead{}
+%\lhead{}
+
+%\renewcommand{\footrulewidth}{0.4pt}
+
+% Line Spacing
+
+
+%\titleformat{\chapter}[display]{CHAPTER \thechapter}{}{}
+
+%\titleformat{\chapter}
+%{\bfseries\centering\Large\filright}{}{}
+%%{\Large CHAPTER \thechapter}{\newline}{\Large}
+%%\titlespacing*{\chapter}{0pt}{30pt}{20pt}
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}
+{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\normalfont\large\bfseries}
+{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+{\normalfont\bfseries}
+{\thesubsubsection}{1em}{}
+
+\captionsetup{labelfont=bf}
+
+
+
+\begin{document}
+\captionsetup{belowskip=0pt}
+% To expand the word spacing
+\spaceskip=1.5\fontdimen2\font plus 1.5\fontdimen3\font
+minus 1.5\fontdimen4\font
+\setlength{\textfloatsep}{0.1cm}
+\addtolength{\parskip}{-0.5mm}
+
+\frontmatter
+\pagenumbering{gobble}
+\input{titlepage}
+\input{Chapters/declaration_plag}
+\newpage
+\input{bonafide}
+\renewcommand{\footrulewidth}{0.4pt}
+\cfoot{\small{Kokapet(V),Gandipet(M),Ranga Reddy (Dist.)–500075, Hyderabad, T.S.\\
+		 www.cbit.ac.in}}
+
+
+
+\clearpage
+\pagenumbering{roman}
+\fontsize{12pt}{12pt}\selectfont
+\onehalfspacing
+\addtocontents{toc}{\textbf{Title}\hfill\textbf{Page No.}\par}
+\fancyfoot{}
+\renewcommand{\footrulewidth}{0pt}
+\input{acknowledgements.tex}
+\input{abstract}
+\clearpage
+\phantomsection
+%\addcontentsline{toc}{chapter}{Table of Contents}
+\tableofcontents
+
+% List of Figures Page
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+% List of Abbreviations Page
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Abbreviations}
+\include{Abbreviations}
+\newcommand*\subtxt[1]{_{\textnormal{#1}}}
+\DeclareRobustCommand\_{\ifmmode\expandafter\subtxt\else\textunderscore\fi}
+
+\newcommand*\suptxt[1]{^{\textnormal{#1}}}
+\DeclareRobustCommand\^{\ifmmode\expandafter\suptxt\else\textunderscore\fi}
+
+% Main Content
+\mainmatter
+\rfoot{\thepage}
+\rhead{}
+%\rhead{\textbf{\projecttitle}}
+\lhead{}
+\lfoot{\small{Department of Information Technology}}
+%\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setstretch{1.5}
+\input{Chapters/Chapter1.tex}
+\clearpage
+\input{Chapters/Chapter2.tex}
+\clearpage
+\input{Chapters/Chapter3.tex}
+\clearpage
+\input{Chapters/Chapter4.tex}
+\clearpage
+\input{Chapters/Chapter5.tex}
+\clearpage
+\input{Chapters/Chapter6.tex}
+\clearpage
+
+
+% Appendix and Code Attachments
+
+\fontsize{12pt}{12pt}\selectfont
+
+\setstretch{1.0}
+% Change Bibliography to References
+\renewcommand\bibname{References}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
+\printbibliography
+
+
+
+%
+% ---- Bibliography ----
+%
+% BibTeX users should specify bibliography style 'splncs04'.
+% References will then be sorted and formatted in the correct style.
+%
+% \bibliographystyle{splncs04}
+% \bibliography{mybibliography}
+%
+\begin{thebibliography}{00}
+ \bibitem{1}
+    Maohui Luo, Yumeng Hong, Jovan Pantelic (2021). Determining Building Natural Ventilation Potential via IoT-Based Air Quality Sensors. \textit{Frontiers in Environmental Science}, 9:634570. 
+    
+    \bibitem{2}
+    Rastogi K, Lohani D, Acharya D (2021). Context-Aware Monitoring and Control of Ventilation Rate in Indoor Environments Using Internet of Things. \textit{IEEE Internet of Things Journal}, 8(11):9257–9267. 
+    
+    \bibitem{3}
+    Mobasshir Mahbub, M. Mofazzal Hossain, Md. Shamrat Apu Gazi (2021). Cloud-Enabled IoT-based embedded system and software for intelligent indoor lighting, ventilation, early stage fire detection and prevention. \textit{Elsevier Publication}. 
+    \bibitem{4}
+    Lavinia Chiara Tagliabue, Fulvio Re Cecconi, Stefano Rinaldi, Angelo Luigi Camillo Ciribini (2021). Data driven indoor air quality prediction in educational facilities based on IoT network. \textit{Elsevier Publication}. 
+     \bibitem{5}
+    Jingyang Wang, Jiazheng Li, Xiaoxiao Wang, Jue Wang, Min Huang (2020). Air quality prediction using CT-LSTM. \textit{Springer}, Volume 33. 
+    \bibitem{6}
+    Guangfei Yang, Erbiao Yuan, Wenjun Wu (2021). Predicting the long-term CO2 concentration in classrooms based on the BO–EMD–LSTM model. \textit{Elsevier Publication}. 
+     \bibitem{7}
+    V. Faye McNeill, Richard Corsi, J. Alex Huffman, Cathleen King, Robert Klein, Michael Lamore, Do Young Maeng, Shelly L. Miller, Nga Lee Ng, Paula Olsiewski, Krystal J. Godri Pollitt, Rachel Segalman, Alex Sessions, Todd Squires, Sabrina Westgate (2022). Room-level ventilation in schools and universities. \textit{Elsevier Publication}. 
+     \bibitem{8}
+    S. Dhanalakshmi, M. Poongothai, Kaner Sharma (2020). IoT Based Indoor Air Quality and Smart Energy Management for HVAC System. \textit{Elsevier Publication}. 
+    
+ \bibitem{9}
+    Rafael Fayos-Jordan, Jaume Segura-Garcia, Antonio Soriano-Asensi, Santiago Felici-Castell, Jose M Felisi, Jose M Alcaraz-Calero (2021). VentQsys: Low-cost open IoT system for \( CO_2 \) monitoring in classrooms. \textit{Springer}. 
+
+     \bibitem{10}
+     Rizzo; Camilleri; Gatt; Yousif(2024). Optimising Mechanical Ventilation for Indoor Air Quality and Thermal Comfort in a Mediterranean School Building. \textit{MDPI}. 
+    
+    \bibitem{11}
+    Zivelonghi; Giuseppi, (2023). Smart Healthy Schools: An IoT-enabled concept for multi-room dynamic air quality control. \textit{Elsevier Publication}. 
+     \bibitem{12}
+        Zeba Idrees, Zhuo Zou, Lirong Zheng (2018). Edge Computing Based IoT Architecture for Low Cost Air Pollution Monitoring Systems: A Comprehensive System Analysis, Design Considerations \& Development. \textit{MDPI}. 
+     \bibitem{13}
+        Gonçalo Marques, Cristina Roque Ferreira, Rui Pitarma (2018). A System Based on the Internet of Things for Real-Time Particle Monitoring in Buildings. \textit{MDPI}. 
+\bibitem{14}
+    Hesham El-Sayed, Sharmi Sankar, Mukesh Prasad, Deepak Puthal, Akshansh Gupta, Manoranjan Mohanty (2017). Edge of Things: The Big Picture on the Integration of Edge, IoT and the Cloud in a Distributed Computing Environment. \textit{IEEE Access}. 
+    \bibitem{15}
+    Jagriti Saini, Maitreyee Dutta, Gonçalo Marques (2020). Indoor Air Quality Monitoring Systems Based on Internet of Things: A Systematic Review. \textit{MDPI}. 
+    \bibitem{16}
+    Mohieddine Benammar, Abderrazak Abdaoui, Sabbir H.M. Ahmad, Farid Touati, Abdullah Kadri (2018). A Modular IoT Platform for Real-Time Indoor Air Quality Monitoring. \textit{MDPI}. 
+    \bibitem{17}
+    Jung-Yoon Kim, Chao-Hsien Chu, Sang-Moon Shin (2014). ISSAQ: An Integrated Sensing Systems for Real-Time Indoor Air Quality Monitoring. \textit{IEEE Sensors Journal}. 
+    \bibitem{18}
+    Mehmet Ta¸stan and Hayrettin Gökozan (2019). Real-Time Monitoring of Indoor Air Quality with Internet of Things-Based E-Nose.\textit{MDPI}. 
+    \bibitem{19}
+    Kenichi Azumaa, Naoki Kagib, U. Yanagic, Haruki Osawad(2018). Effects of low-level inhalation exposure to carbon dioxide in indoor environments: A short review on human health and psychomotor performance.\textit{MDPI}
+    \bibitem{20}
+    Xilei Dai ,Wenzhe Shang ,Junjie Liu ,Min Xue ,Congcong Wang (2023) Achieving better indoor air quality with IoT systems for future buildings: Opportunities and challenges.\textit{MDPI}
+
+    \bibitem{21}
+    J. Chen, Y. Li, H. Wu, Y. Li, Z. Xu (2022). Transfer learning for cross-city air quality prediction. \textit{Elsevier Publication}
+    \bibitem{22}
+    S. Wu, Y. Li, Y. Wang, Y. Zhang, Y. Zhang (2022). Transfer learning-based detection of patient–ventilator asynchrony using pretrained convolutional neural networks. \textit{Elsevier Publication}
+
+    \bibitem{23}
+    Y. Wang, X. Li, J. Zhang, H. Wang, M. Huang (2023). Edge-adaptive CO2 prediction for indoor air quality using dynamic mobile window on IoT devices. \textit{Elsevier Publication}
+
+    \bibitem{24}
+    Zhang, Y. Liu, C. Wang, J. Liu, X. Dai (2021). IoT-based LSTM model for steady-state CO2 forecasting in smart buildings. \textit{Springer Publication}
+
+    \bibitem{25}
+    L. Sun, J. Wang, R. Chen, X. Liu, Y. Zhang (2022). IoT-driven model predictive control for real-time indoor ventilation and CO2 optimization on edge devices. \textit{IEEE Access.}
+    \end{thebibliography}
+    
+
+\end{document}
+
