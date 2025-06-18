@@ -129,7 +129,7 @@ def build_pretrain_model(input_shape, num_output_features):
         Dropout(0.2, name='dropout_shared_2'),
         Dense(16, activation='relu', name='dense_shared_1'),
         Dense(num_output_features, name='dense_pretrain_output') # Output layer
-    ], name="PretrainIndoorLSTM") 
+    ], name="PretrainIndoorLSTM")
     
     model.compile(optimizer='adam', loss='mse', metrics=['mae'])
     logging.info("Model compiled.")
